@@ -81,8 +81,10 @@ function handleCardClick(event) {
 		firstCard = this;
 	}
 	if(numberOfMatches == shuffledColors.length/2){
-		alert("Game Won !!! \nResetting the board.");
-		location.reload(true);
+		setTimeout(() => {
+			alert("Game Won !!! \nResetting the board.");
+			location.reload(true);
+		}, 1000)
 	}
 }
 
