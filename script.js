@@ -69,7 +69,7 @@ function handleCardClick(event) {
 	if (this === firstCard) return;
 
 	const color = event.target.classList.value;
-
+	event.currentTarget.style.backgroundImage = "unset";
 	event.currentTarget.style.backgroundColor = color;
 
 	if (hasFlippedCard) {
@@ -97,6 +97,8 @@ function onMatch() {
 }
 
 function disableCards() {
+	firstCard.style.backgroundImage = "unset";
+	secondCard.style.backgroundImage = "unset";
 	firstCard.removeEventListener("click", handleCardClick);
 	secondCard.removeEventListener("click", handleCardClick);
 	[firstCard, secondCard] = [null, null];
@@ -107,6 +109,8 @@ function unlockBoard() {
 	setTimeout(() => {
 		firstCard.style.backgroundColor = "unset";
 		secondCard.style.backgroundColor = "unset";
+		firstCard.style.backgroundImage = "radial-gradient(hsl(0, 0%, 25%), hsl(0, 0%, 20%))";
+		secondCard.style.backgroundImage = "radial-gradient(hsl(0, 0%, 25%), hsl(0, 0%, 20%))";
 		[firstCard, secondCard] = [null, null];
 		lockBoard = false;
 	}, 1 * 1000);
